@@ -1,0 +1,53 @@
+
+{% extends 'predictor/base.html' %}
+
+{% block title %}Sign In | TitanicAI{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-card">
+        <div class="auth-icon">✦</div>
+
+        <p class="section-label">WELCOME BACK</p>
+        <h1 class="auth-title">Sign in to TitanicAI</h1>
+        <p class="auth-description">
+            Access your survival predictions and analytics.
+        </p>
+
+        {% if form.errors %}
+            <div class="auth-error">
+                Invalid username or password. Please try again.
+            </div>
+        {% endif %}
+
+        <form method="POST" class="auth-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">
+                    Username
+                </label>
+                {{ form.username }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password.id_for_label }}">
+                    Password
+                </label>
+                {{ form.password }}
+            </div>
+
+            <input type="hidden" name="next" value="{% url 'dashboard' %}">
+
+            <button type="submit" class="btn-primary-blue auth-submit">
+                Sign In →
+            </button>
+        </form>
+
+        <p class="auth-switch">
+            Don't have an account?
+            <a href="{% url 'register' %}">Create account</a>
+        </p>
+    </div>
+</section>
+{% endblock %}

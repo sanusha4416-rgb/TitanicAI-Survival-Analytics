@@ -1,0 +1,350 @@
+
+{% extends 'predictor/base.html' %}
+
+{% block title %}TitanicAI | AI Survival Analytics{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero-section text-center">
+
+    <span class="section-label">
+        ✦ MACHINE LEARNING • SURVIVAL ANALYTICS
+    </span>
+
+    <h1 class="section-title hero-title">
+        Discover the Power of<br>
+        <span class="text-blue">AI-Powered</span> Survival Prediction
+    </h1>
+
+    <p class="hero-description">
+        Explore Titanic passenger data, understand survival patterns,
+        and predict outcomes using our Machine Learning model.
+    </p>
+
+    <div class="hero-actions">
+        <a href="/predict/" class="btn btn-primary-blue btn-lg">
+            Try Prediction <span aria-hidden="true">→</span>
+        </a>
+
+        <a href="#about" class="btn btn-outline-blue btn-lg">
+            Explore Platform
+        </a>
+    </div>
+
+    <!-- DASHBOARD PREVIEW -->
+    <div class="preview-dashboard text-start">
+
+        <div class="preview-sidebar">
+            <a href="/" class="brand-logo preview-brand">
+                <span class="brand-icon">✦</span>Titanic<span class="brand-highlight">AI</span>
+            </a>
+
+            <p class="preview-menu-label">WORKSPACE</p>
+
+            <div class="preview-menu-item active">
+                <span>▦</span> Overview
+            </div>
+
+            <div class="preview-menu-item">
+                <span>✧</span> Predictions
+            </div>
+
+            <div class="preview-menu-item">
+                <span>▥</span> Analytics
+            </div>
+
+            <div class="preview-menu-item">
+                <span>◷</span> History
+            </div>
+
+            <div class="preview-menu-item">
+                <span>⚙</span> Settings
+            </div>
+        </div>
+
+        <div class="preview-main">
+
+            <div class="preview-topbar">
+                <div>
+                    <h3>Analytics Overview</h3>
+                    <p>Explore Titanic survival insights</p>
+                </div>
+
+                <span class="preview-status">
+                    ● ML Model Ready
+                </span>
+            </div>
+
+            <div class="row g-3 preview-stats">
+
+                <div class="col-12 col-md-4">
+                    <div class="preview-stat-card">
+                        <p>Dataset Records</p>
+                        <h3>891</h3>
+                        <span>Passenger records</span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="preview-stat-card">
+                        <p>Model Accuracy</p>
+                        <h3>81.01%</h3>
+                        <span>Test-set performance</span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="preview-stat-card">
+                        <p>ML Algorithm</p>
+                        <h3>Random Forest</h3>
+                        <span>Classification model</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row g-3 mt-1">
+
+                <div class="col-12 col-lg-7">
+                    <div class="preview-chart-card">
+                        <h4>Survival Analytics</h4>
+                        <p>Understand passenger survival patterns</p>
+
+                        <div class="chart-placeholder">
+                            <div class="chart-grid-line line-one"></div>
+                            <div class="chart-grid-line line-two"></div>
+                            <div class="chart-grid-line line-three"></div>
+
+                            <svg viewBox="0 0 500 150"
+                                 class="preview-chart"
+                                 role="img"
+                                 aria-label="Decorative analytics chart preview">
+
+                                <defs>
+                                    <linearGradient id="chartFill"
+                                                    x1="0" y1="0"
+                                                    x2="0" y2="1">
+                                        <stop offset="0%"
+                                              stop-color="#1685ff"
+                                              stop-opacity="0.35"/>
+                                        <stop offset="100%"
+                                              stop-color="#1685ff"
+                                              stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <path d="M0,120 C35,110 40,65 85,85
+                                         S135,125 175,70
+                                         S230,30 265,75
+                                         S315,110 355,50
+                                         S415,70 450,30 L500,15
+                                         L500,150 L0,150 Z"
+                                      fill="url(#chartFill)"/>
+
+                                <path d="M0,120 C35,110 40,65 85,85
+                                         S135,125 175,70
+                                         S230,30 265,75
+                                         S315,110 355,50
+                                         S415,70 450,30 L500,15"
+                                      fill="none"
+                                      stroke="#2995ff"
+                                      stroke-width="3"
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <small class="preview-note">
+                            Illustrative design preview — actual analytics will be connected later.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-5">
+                    <div class="preview-chart-card">
+                        <h4>Platform Features</h4>
+
+                        <div class="feature-progress">
+                            <div class="d-flex justify-content-between">
+                                <span>ML Predictions</span>
+                                <span>01</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="feature-progress">
+                            <div class="d-flex justify-content-between">
+                                <span>Data Analytics</span>
+                                <span>02</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div class="feature-progress">
+                            <div class="d-flex justify-content-between">
+                                <span>Model Evaluation</span>
+                                <span>03</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 65%"></div>
+                            </div>
+                        </div>
+
+                        <p class="preview-note mt-4">
+                            A unified workspace for machine learning insights.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ABOUT SECTION -->
+<section class="content-section" id="about">
+
+    <div class="text-center section-heading">
+        <span class="section-label">ABOUT THE PROJECT</span>
+
+        <h2 class="section-title">
+            From Passenger Data to
+            <span class="text-blue">Insights</span>
+        </h2>
+
+        <p class="section-subtitle">
+            TitanicAI combines Machine Learning and data analytics
+            in one easy-to-use web application.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-12 col-md-4">
+            <div class="ai-card">
+                <div class="card-icon">✦</div>
+                <h3>Machine Learning</h3>
+                <p>
+                    Use a trained Random Forest classifier to estimate
+                    survival outcomes from passenger information.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="ai-card">
+                <div class="card-icon">▥</div>
+                <h3>Data Analytics</h3>
+                <p>
+                    Explore survival patterns across passenger classes,
+                    genders, ages, fares and embarkation ports.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="ai-card">
+                <div class="card-icon">⌘</div>
+                <h3>Model Evaluation</h3>
+                <p>
+                    Review model accuracy, precision, recall, F1-score
+                    and feature importance.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FEATURES SECTION -->
+<section class="content-section" id="features">
+
+    <div class="text-center section-heading">
+        <span class="section-label">PLATFORM FEATURES</span>
+
+        <h2 class="section-title">
+            Everything in <span class="text-blue">One Place</span>
+        </h2>
+
+        <p class="section-subtitle">
+            A complete workflow for exploring and testing
+            a Machine Learning model.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="ai-card">
+                <div class="card-icon">⌘</div>
+                <h3>Survival Prediction</h3>
+                <p>Enter passenger details and view the model's prediction.</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="ai-card">
+                <div class="card-icon">▤</div>
+                <h3>Visual Analytics</h3>
+                <p>Discover data patterns through interactive charts.</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="ai-card">
+                <div class="card-icon">◷</div>
+                <h3>Prediction History</h3>
+                <p>Review your previous predictions and their results.</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="ai-card">
+                <div class="card-icon">⇩</div>
+                <h3>Reports</h3>
+                <p>Export your saved prediction history as a CSV report.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ANALYTICS SECTION -->
+<section class="content-section analytics-callout" id="analytics">
+
+    <div class="row align-items-center g-4">
+
+        <div class="col-12 col-lg-8">
+            <span class="section-label">EXPLORE THE DATA</span>
+
+            <h2 class="section-title mt-3">
+                Every Passenger Tells a
+                <span class="text-blue">Story.</span>
+            </h2>
+
+            <p class="text-muted-custom mt-3">
+                Investigate survival patterns, compare passenger groups
+                and understand the behaviour of the dataset through
+                data-driven visualizations.
+            </p>
+        </div>
+
+        <div class="col-12 col-lg-4 text-lg-end">
+            <a href="/predict/" class="btn btn-primary-blue btn-lg">
+                Try a Prediction →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+ {% extends "predictor/base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <h2>Survival Analytics</h2>
+    <p>Analysis of your Titanic survival predictions.</p>
+
+    <div class="row g-4 mt-2">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <h5>Predicted Survivors</h5>
+                <h2>{{ survivors }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <h5>Predicted Non-Survivors</h5>
+                <h2>{{ non_survivors }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-3">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <h5>Survival Prediction Distribution</h5>
+                <canvas id="survivalChart"></canvas>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <h5>Predictions by Passenger Class</h5>
+                <canvas id="classChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{{ survivors|json_script:"survivors-data" }}
+{{ non_survivors|json_script:"non-survivors-data" }}
+{{ class_labels|json_script:"class-labels-data" }}
+{{ class_counts|json_script:"class-counts-data" }}
+
+<script>
+    const survivors = JSON.parse(
+        document.getElementById("survivors-data").textContent
+    );
+
+    const nonSurvivors = JSON.parse(
+        document.getElementById("non-survivors-data").textContent
+    );
+
+    const classLabels = JSON.parse(
+        document.getElementById("class-labels-data").textContent
+    );
+
+    const classCounts = JSON.parse(
+        document.getElementById("class-counts-data").textContent
+    );
+
+    new Chart(document.getElementById("survivalChart"), {
+        type: "doughnut",
+        data: {
+            labels: ["Survived", "Did Not Survive"],
+            datasets: [{
+                data: [survivors, nonSurvivors]
+            }]
+        }
+    });
+
+    new Chart(document.getElementById("classChart"), {
+        type: "bar",
+        data: {
+            labels: classLabels,
+            datasets: [{
+                label: "Number of Predictions",
+                data: classCounts
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

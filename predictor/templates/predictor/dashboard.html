@@ -1,0 +1,67 @@
+
+{% extends 'predictor/base.html' %}
+
+{% block title %}Dashboard | TitanicAI{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+
+    <div class="dashboard-heading">
+        <div>
+            <p class="section-label">OVERVIEW</p>
+            <h1 class="section-title">
+                Welcome, {{ request.user.username }}
+            </h1>
+            <p class="section-subtitle">
+                Your Titanic survival analytics at a glance.
+            </p>
+        </div>
+
+        <a href="{% url 'predict' %}" class="btn-primary-blue">
+            + New Prediction
+        </a>
+    </div>
+
+    <div class="dashboard-stats">
+
+        <div class="ai-card stat-card">
+            <p>Total Predictions</p>
+            <h2>{{ total_predictions }}</h2>
+            <span>Predictions made</span>
+        </div>
+
+        <div class="ai-card stat-card">
+            <p>Predicted Survivors</p>
+            <h2>{{ survivors }}</h2>
+            <span>Survival predictions</span>
+        </div>
+
+        <div class="ai-card stat-card">
+            <p>Predicted Non-survivors</p>
+            <h2>{{ non_survivors }}</h2>
+            <span>Non-survival predictions</span>
+        </div>
+
+        <div class="ai-card stat-card">
+            <p>Model Accuracy</p>
+            <h2>{{ model_accuracy }}%</h2>
+            <span>Random Forest model</span>
+        </div>
+
+    </div>
+
+    <div class="ai-card dashboard-info">
+        <p class="section-label">QUICK ACTION</p>
+        <h3>Predict Titanic Survival</h3>
+        <p>
+            Enter passenger details and use the trained machine
+            learning model to estimate the survival probability.
+        </p>
+
+        <a href="{% url 'predict' %}" class="btn-primary-blue">
+            Open Prediction Page →
+        </a>
+    </div>
+
+</section>
+{% endblock %}

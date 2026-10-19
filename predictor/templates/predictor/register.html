@@ -1,0 +1,60 @@
+
+{% extends 'predictor/base.html' %}
+
+{% block title %}Create Account | TitanicAI{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-card">
+        <div class="auth-icon">✦</div>
+
+        <p class="section-label">JOIN TITANICAI</p>
+        <h1 class="auth-title">Create your account</h1>
+        <p class="auth-description">
+            Start exploring AI-powered survival analytics.
+        </p>
+
+        <form method="POST" class="auth-form">
+            {% csrf_token %}
+
+            {% if form.errors %}
+                <div class="auth-error">
+                    Please check your details and try again.
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">
+                    Username
+                </label>
+                {{ form.username }}
+                <small>Choose a unique username.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password1.id_for_label }}">
+                    Password
+                </label>
+                {{ form.password1 }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">
+                    Confirm Password
+                </label>
+                {{ form.password2 }}
+            </div>
+
+            <button type="submit" class="btn-primary-blue auth-submit">
+                Create Account →
+            </button>
+        </form>
+
+        <p class="auth-switch">
+            Already have an account?
+            <a href="{% url 'login' %}">Sign in</a>
+        </p>
+    </div>
+</section>
+{% endblock %}
