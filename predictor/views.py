@@ -26,7 +26,7 @@ columns = joblib.load(
     BASE_DIR / "predictor" / "titanic_columns.pkl"
 )
 
-
+@login_required
 def home(request):
     result = None
     probability = None
@@ -115,6 +115,7 @@ def home(request):
         }
     )
 
+
 def landing(request):
     return render(request, 'predictor/landing.html')
 
@@ -142,6 +143,7 @@ def logout_view(request):
         return redirect("landing")
 
     return redirect("dashboard")
+
 @login_required
 def dashboard(request):
     user_predictions = Prediction.objects.filter(
